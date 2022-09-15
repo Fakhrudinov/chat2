@@ -1,5 +1,5 @@
-import React from 'react'
-import Message from '../message/Message.jsx'
+import React from 'react';
+import Message from '../message/Message.jsx';
 
 function MessagesList({ messages, currentUser }) {
   return (
@@ -18,6 +18,6 @@ function MessagesList({ messages, currentUser }) {
       })}
     </div>
   )
-}
+};
 
-export default MessagesList
+export default MessagesList;
