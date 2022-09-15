@@ -1,14 +1,14 @@
-import { useState, forwardRef } from 'react'
-import { Stack, TextField, Button } from '@mui/material'
+import { useState, forwardRef } from 'react';
+import { Stack, TextField, Button } from '@mui/material';
 
 const MessageForm = forwardRef(({ onMessageSend }, ref) => {
-  const [formMessage, setFormMessage] = useState({ author: '', body: '' })
+  const [formMessage, setFormMessage] = useState({ author: '', body: '' });
 
   const sendMessage = (e) => {
     e.preventDefault()
     onMessageSend(formMessage)
     setFormMessage({ ...formMessage, body: '' })
-  }
+  };
 
   return (
     <div>
@@ -44,6 +44,6 @@ const MessageForm = forwardRef(({ onMessageSend }, ref) => {
       </Stack>
     </div>
   )
-})
+});
 
-export default MessageForm
+export default MessageForm;

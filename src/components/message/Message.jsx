@@ -1,5 +1,5 @@
-import React from 'react'
-import './Message.css'
+import React from 'react';
+import './Message.css';
 
 function Message({ message, author, ...styles }) {
   return (
@@ -8,6 +8,6 @@ function Message({ message, author, ...styles }) {
       <span className="message">{message}</span>
     </div>
   )
-}
+};
 
-export default Message
+export default Message;
