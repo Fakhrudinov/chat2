@@ -1,0 +1,1 @@
+export const CHECKBOX_ACTION = "CHECKBOX_ACTION";
