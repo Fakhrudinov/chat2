@@ -1,6 +1,6 @@
-import React from 'react';
-import {Outlet} from 'react-router-dom';
-import CustomLink from '../components/customLink/CustomLink';
+import React from 'react'
+import {Outlet} from 'react-router-dom'
+import CustomLink from '../components/customLink/CustomLink'
 
 const SiteLayout = () => {
   return (
@@ -14,6 +14,6 @@ const SiteLayout = () => {
           <main><Outlet/></main>
       </>
   )
-};
+}
 
-export default SiteLayout;
+export default SiteLayout

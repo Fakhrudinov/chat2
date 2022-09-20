@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link, useMatch } from 'react-router-dom';
+import React from 'react'
+import { Link, useMatch } from 'react-router-dom'
 
 const CustomLink = ({ children, to, ...props }) => {
   const match = useMatch(to)
@@ -9,6 +9,6 @@ const CustomLink = ({ children, to, ...props }) => {
       {children}
     </Link>
   )
-};
+}
 
-export default CustomLink;
+export default CustomLink
