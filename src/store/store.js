@@ -1,7 +1,13 @@
-import { createStore } from "redux";
-import { profileReducer } from "./Profile/reducer";
+import { configureStore } from "@reduxjs/toolkit";
+import authSlice from "./authSlice";
+import chatSlice from "./chatSlice";
+import profileSlice from "./profileSlice";
 
-export const store = createStore(
-  profileReducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-);
+export default configureStore({
+  reducer: {
+    chat: chatSlice,
+    auth: authSlice,
+    profile: profileSlice
+  },
+  devTools: true,
+});

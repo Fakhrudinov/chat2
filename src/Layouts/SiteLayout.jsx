@@ -14,6 +14,6 @@ const SiteLayout = () => {
           <main><Outlet/></main>
       </>
   )
-};
+}
 
 export default SiteLayout;
