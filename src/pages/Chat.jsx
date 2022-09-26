@@ -28,7 +28,7 @@ const Chat = () => {
       dispatch(addMessage(message))
       formRef.current.focus()
     },
-    []
+    [dispatch]
   );
 
   useEffect(() => {
