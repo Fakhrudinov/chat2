@@ -9,11 +9,14 @@ const SiteLayout = () => {
               <CustomLink to={'/'}>Home</CustomLink>
               <CustomLink to={'/chat'}>Chat</CustomLink>
               <CustomLink to={'/profile'}>Profile</CustomLink>
+              <CustomLink to={'/galery'}>Galery</CustomLink>
           </header>
 
-          <main><Outlet/></main>
+          <main>
+            <Outlet/>
+          </main>
       </>
   )
-};
+}
 
 export default SiteLayout;

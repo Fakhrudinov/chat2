@@ -1,28 +1,20 @@
 import { useDispatch, useSelector } from "react-redux";
-import { toggleUserNameAction } from "../store/Profile/actions";
-import { profileSelector } from "../store/Profile/selectors";
+import { checkedChange, selectCheckBox } from '../store/profileSlice';
 
 const Profile = () => {
-
+  const isChecked = useSelector(selectCheckBox);
   const dispatch = useDispatch();
-  const { message, isChecked } = useSelector(profileSelector);
-
-  const handleToggleshowName = () => {
-    dispatch(toggleUserNameAction());
-  };
 
   return (
     <div>
       <h3>Profile</h3>
       <div>
         {console.log(isChecked)}
-        {console.log(message)}
 
-        <input type="checkbox"  onClick={handleToggleshowName} />
-        {isChecked && message}
+        <input type="checkbox"  onClick={() => dispatch(checkedChange())} />
+        {isChecked && 'Отмечен'}
         
       </div>
-
     </div>
   )
 };
