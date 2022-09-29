@@ -8,31 +8,27 @@ import {
 import CommentIcon from '@mui/icons-material/Comment';
 import DeleteIcon from '@mui/icons-material/Delete';
 import AddIcon from '@mui/icons-material/Add';
-import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
-const ChatsList = ({ chats, chatId, onRemoveChat, onAddChat }) => {
+import { useSelector, useDispatch } from 'react-redux';
+import {
+  selectChats,
+  addChat,
+  removeChat,
+  loadChat,
+  selectChatId,
+} from '../../store/chatSlice';
+
+const ChatsList = () => {
+  const chats = useSelector(selectChats);
+  const currentChatId = useSelector(selectChatId);
+  const dispatch = useDispatch();
+
   const [addFormOpen, setFormVisibility] = useState(true);
-  
-  const navigate = useNavigate();
-  
+
   const selectChat = (id) => {
     if (!id) return
-    navigate(`/chat/${id}`)
-  };
-  
-  const removeChat = (e, id) => {
-    navigateToChat()
-    onRemoveChat(id)
-  };
-
-  const navigateToChat = (id) => {
-    if (!id) {
-      navigate('/chat');
-      return
-    }
-
-    navigate(`/chat/${id}`)
+      dispatch(loadChat(id))
   };
 
   const openAddChatForm = () => {
@@ -43,8 +39,7 @@ const ChatsList = ({ chats, chatId, onRemoveChat, onAddChat }) => {
     e.preventDefault()
     if (isAdd) {
       let chatName = e.target.form.chatName.value
-      let id = onAddChat(chatName)
-      navigateToChat(id)
+      dispatch({type:addChat.type, payload: chatName, meta: {delay:1500}})
     }
     setFormVisibility(false)
   };
@@ -70,12 +65,12 @@ const ChatsList = ({ chats, chatId, onRemoveChat, onAddChat }) => {
   return (
     <List sx={{ bgcolor: 'background.paper' }}>
       {chats.map((chat, index) => (
-        <ListItem key={chat.id} selected={`${chat.id}` === chatId}>
+        <ListItem key={chat.id} selected={`${chat.id}` === currentChatId}>
           <ListItemButton onClick={() => selectChat(chat.id)}>
             <ListItemText primary={chat.header} />
             <CommentIcon />
           </ListItemButton>
-          <IconButton onClick={(e) => removeChat(e, chat.id)}>
+          <IconButton onClick={(e) => dispatch(removeChat(chat.id))}>
             <DeleteIcon />
           </IconButton>
         </ListItem>
