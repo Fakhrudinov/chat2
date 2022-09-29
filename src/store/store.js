@@ -6,6 +6,7 @@ import profileSlice from "./profileSlice";
 import { combineReducers } from "redux";
 import storage from "redux-persist/lib/storage";
 import { persistStore, persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from "redux-persist";
+import galerySlice from "./galerySlice";
 
 const functionDelay = (store) => (next) => (action) => {
   const delay = action?.meta?.delay;
@@ -17,7 +18,8 @@ const functionDelay = (store) => (next) => (action) => {
 const reducers = combineReducers({
   chat: chatSlice,
   auth: authSlice,
-  profile: profileSlice
+  profile: profileSlice,
+  galery: galerySlice
 });
 
 const persistConfig = {
