@@ -2,12 +2,11 @@ import { useEffect, useCallback, useRef } from 'react';
 import MessagesList from '../components/messagesList/MessagesList';
 import MessageForm from '../components/messageForm/MessageForm';
 import ChatsList from '../components/chatsList/ChatsList';
-import { TextField } from '@mui/material';
 import CustomLink from '../components/customLink/CustomLink';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { selectMessages, addMessage } from '../store/chatSlice';
-import { selectUserName, signIn } from '../store/authSlice';
+import { selectUserName } from '../store/authSlice';
 
 const Chat = () => {
   const userName = useSelector(selectUserName);
@@ -42,12 +41,7 @@ const Chat = () => {
           <CustomLink to={'/'}>Home</CustomLink>
         </div>
         <div className="chat-user">
-          <TextField
-            type="text"
-            label="Current User"
-            value={userName}
-            onChange={(e) => dispatch(signIn(e.target.value))}
-          />
+          <label label="Current User" value={userName} />
         </div>
 
         <ChatsList />

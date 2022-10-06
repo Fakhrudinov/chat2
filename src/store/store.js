@@ -19,7 +19,7 @@ const reducers = combineReducers({
   chat: chatSlice,
   auth: authSlice,
   profile: profileSlice,
-  galery: galerySlice
+  galery: galerySlice,
 });
 
 const persistConfig = {
